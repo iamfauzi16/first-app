@@ -15,13 +15,15 @@ const options = {
 }
 
 let request = https.request(options, (Response) => {
-    //   TODO : Read the data []
+    //   TODO : Read the data [x]
     let body = ''
     Response.on('data', (data) => {
        body = body + data
    })
    Response.on('end', () => {
-       console.log(typeof body)
+    //  TODO : Parse the data [x]
+       let profile = JSON.parse(body)
+       console.log(profile.avatar_url)
    })
 })
 
